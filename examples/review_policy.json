@@ -1,0 +1,12 @@
+{
+  "security": [
+    {"id": "SEC-001", "pattern": "eval\\(", "message": "Avoid eval", "severity": "high"},
+    {"id": "SEC-002", "pattern": "execute\\(.*format\\(", "message": "SQL string formatting", "severity": "high"}
+  ],
+  "style": [
+    {"id": "STY-001", "pattern": "print\\(", "message": "Debug print", "severity": "low"}
+  ],
+  "docs": [
+    {"id": "DOC-001", "check": "public_api_without_docs", "severity": "medium"}
+  ]
+}
