@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "localast"
+version = "0.1.0"
+description = "Local-first scaffolding for the Local Code Brain architecture"
+readme = "README.md"
+authors = [{name = "LocalAST Contributors"}]
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+localast = "localast.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+addopts = "-q"
