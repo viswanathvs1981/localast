@@ -1,3 +1,11 @@
+Metadata-Version: 2.1
+Name: localast
+Version: 0.1.0
+Summary: Local-first scaffolding for the Local Code Brain architecture
+Author: LocalAST Contributors
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+
 # LocalAST
 
 LocalAST is a comprehensive local code intelligence platform that provides semantic

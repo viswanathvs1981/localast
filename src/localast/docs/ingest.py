@@ -52,9 +52,28 @@ def ingest_documents(
     doc_paths: Iterable[Path],
     *,
     repo_root: Path,
+    repo_id: int | None = None,
     index_kind: str = "documentation",
 ) -> dict[str, int]:
-    """Load documentation files into ``blob``, ``doc_fts``, and ``emb`` tables."""
+    """Load documentation files into ``blob``, ``doc_fts``, and ``emb`` tables.
+    
+    Parameters
+    ----------
+    connection:
+        Database connection
+    doc_paths:
+        Paths to documentation files or directories
+    repo_root:
+        Repository root for resolving code references
+    repo_id:
+        Repository ID (for multi-repo support)
+    index_kind:
+        Identifier for the embedding index
+    
+    Returns
+    -------
+    Dictionary with 'documents' count
+    """
 
     cursor = connection.cursor()
     existing_files = _load_file_index(cursor)
@@ -81,9 +100,9 @@ def ingest_documents(
 
         vector = _compute_vector(text)
         cursor.execute(
-            "INSERT INTO emb (blob_id, dim, vec, index_kind, file_id, fqn, start_line, end_line)"
-            " VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
-            (blob_id, 4, sqlite3.Binary(vector), index_kind, None, None, None, None),
+            "INSERT INTO emb (blob_id, dim, vec, index_kind, repo_id, file_id, fqn, start_line, end_line)"
+            " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+            (blob_id, 4, sqlite3.Binary(vector), index_kind, repo_id, None, None, None, None),
         )
 
         matches = set(_CODE_REFERENCE_PATTERN.findall(text))

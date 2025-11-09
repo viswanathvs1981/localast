@@ -1,0 +1,2 @@
+[console_scripts]
+localast = localast.cli:main

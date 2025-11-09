@@ -1,5 +1,11 @@
-"""Embedding index scaffolding."""
+"""Embedding index operations and vector search."""
 
-from .index import Embedding, add_embeddings, search
+from .index import SearchResult, cosine_similarity, search_code_semantic, search_docs_semantic, find_similar_symbols
 
-__all__ = ["Embedding", "add_embeddings", "search"]
+__all__ = [
+    "SearchResult",
+    "cosine_similarity",
+    "search_code_semantic",
+    "search_docs_semantic",
+    "find_similar_symbols",
+]

@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "localast": {
+      "command": "/Users/viswanathsekar/localast/.venv/bin/localast",
+      "args": ["serve"],
+      "env": {}
+    }
+  }
+}
+
+
+

@@ -7,6 +7,7 @@ keeping all execution paths local-only.
 __all__ = [
     "config",
     "ast",
+    "git",
     "graph",
     "embeddings",
     "docs",

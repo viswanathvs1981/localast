@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "localast": {
+      "command": "localast",
+      "args": ["serve"],
+      "description": "LocalAST Code Intelligence - Provides semantic search, code context, and git history tools",
+      "env": {}
+    }
+  }
+}
+
+
+
+
